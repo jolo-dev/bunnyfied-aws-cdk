@@ -1,6 +1,7 @@
 # Welcome to your Bun CDK TypeScript project 🍔
 
 This is the Bun 💨 for your AWS CDK development ☁️ with [Bun](https://bun.sh/) and TypeScript.
+[Read on](https://medium.com/@jolodev/run-bun-run-721700a94a08) how built this project.
 
 ## What are the Fillings 🥟
 
