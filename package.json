@@ -1,27 +1,38 @@
 {
-  "name": "aws-cdk-bunx",
+  "name": "bun-fun",
+  "type": "module",
   "version": "0.1.0",
-  "bin": {
-    "aws-cdk-bunx": "bin/aws-cdk-bunx.js"
-  },
+  "module": "index.ts",
+  "workspaces": ["packages/*"],
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.4",
-    "@types/node": "20.5.9",
-    "jest": "^29.6.4",
-    "ts-jest": "^29.1.1",
-    "aws-cdk": "2.96.2",
-    "ts-node": "^10.9.1",
-    "typescript": "~5.2.2"
+    "build": "bun build index.ts",
+    "build:layer": "bun run packages/bun-lambda/scripts/build-layer.ts",
+    "watch": "bun cdk watch",
+    "test": "vitest",
+    "cdk": "cdk",
+    "synth": "cdk synth --profile ${AWS_PROFILE:-default}",
+    "deploy": "cdk deploy --profile ${AWS_PROFILE:-default}",
+    "deploy:only": "bun cdk deploy ${STACK:-*/BunFunStack} --profile ${AWS_PROFILE:-default}",
+    "deploy:all": "bun deploy:layer && bun run deploy --all",
+    "deploy:layer": "bun run build:layer && bun cdk deploy */BunFunLayerStack --profile ${AWS_PROFILE:-default}",
+    "destroy": "cdk destroy --profile ${AWS_PROFILE:-default}",
+    "destroy:only": "bun cdk destroy ${STACK:-*/BunFunStack} --profile ${AWS_PROFILE:-default}",
+    "destroy:all": "bun run destroy --all",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.96.2",
+    "aws-cdk-lib": "2.98.0",
+    "bun": "^1.0.2",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^1.0.0-beta.2",
+    "@types/node": "20.5.9",
+    "aws-cdk": "2.98.0",
+    "bun-types": "^1.0.2",
+    "eslint": "^8.49.0",
+    "typescript": "~5.2.2"
   }
 }

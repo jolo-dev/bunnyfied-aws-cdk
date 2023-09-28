@@ -1,0 +1,22 @@
+{
+  "name": "@bunnyfied/functions",
+  "version": "0.0.1",
+  "description": "Package for functions",
+  "author": "",
+  "license": "ISC",
+  "main": "handler.ts",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@types/dateformat": "^5.0.0",
+    "dateformat": "^5.0.3"
+  },
+  "devDependencies": {
+    "@aws-lambda-powertools/logger": "^1.13.1",
+    "@aws-lambda-powertools/metrics": "^1.13.1",
+    "@aws-lambda-powertools/tracer": "^1.13.1",
+    "@types/aws-lambda": "8.10.121",
+    "vitest": "^0.34.5"
+  }
+}

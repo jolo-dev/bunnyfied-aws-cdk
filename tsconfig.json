@@ -1,31 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
-    "declaration": true,
+
+    "target": "esnext",
+    // enable latest features
+    "lib": ["esnext"],
+
+    // if TS 4.x or earlier
+    // "moduleResolution": "nodenext",
+
+    "jsx": "react-jsx",
+    "moduleDetection": "force",
+    "module": "esnext",
+    // if TS 5.x+
+    "moduleResolution": "bundler",
+    // add Bun type definitions
+    "types": ["bun-types"],
+    "allowImportingTsExtensions": true, // support JSX
+    "allowJs": true,
+    "noEmit": true, // allow importing `.js` from `.ts`
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true, // allow default imports for CommonJS modules
+
+    // best practices
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": false,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
-  },
-  "exclude": [
-    "node_modules",
-    "cdk.out"
-  ]
+    "skipLibCheck": true
+  }
 }

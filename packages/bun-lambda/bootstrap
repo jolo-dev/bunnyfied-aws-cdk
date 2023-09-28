@@ -1,0 +1,5 @@
+#! /bin/sh
+echo "Bun Lambda Runtime"
+ls -la /opt
+export BUN_INSTALL_CACHE_DIR=/tmp/bun/cache
+exec /opt/bun --cwd $LAMBDA_TASK_ROOT /opt/runtime.ts
